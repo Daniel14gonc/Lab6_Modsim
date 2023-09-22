@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>lab6</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="Lab6_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Lab6_files/libs/quarto-html/quarto.js"></script>
+<script src="Lab6_files/libs/quarto-html/popper.min.js"></script>
+<script src="Lab6_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Lab6_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Lab6_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Lab6_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Lab6_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Lab6_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Lab6_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="laboratorio-6" class="level1">
+<h1>Laboratorio 6</h1>
+<section id="sebastian-aristondo" class="level4">
+<h4 class="anchored" data-anchor-id="sebastian-aristondo">20880 Sebastian Aristondo</h4>
+</section>
+<section id="daniel-gonzalez" class="level4">
+<h4 class="anchored" data-anchor-id="daniel-gonzalez">20293 Daniel Gonzalez</h4>
+</section>
+<section id="ejercicio-1" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-1">Ejercicio 1</h2>
+<p>Cree un programa en Python (o en el lenguaje de su preferencia) para modelar la distribución de temperatura dentro de una varilla sólida. Utilice modelado secuencial multiescala, donde combina un modelo macroscópico y un modelo microscópico. Suponga que la varilla consta de dos materiales diferentes con diferentes conductividades térmicas.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> atomo(<span class="bu">object</span>):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, masa, left_neighbour, right_neighbour, position):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.move<span class="op">=</span> [<span class="st">"left"</span>, <span class="st">"right"</span>]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.mass <span class="op">=</span> masa</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left_neighbour <span class="op">=</span> left_neighbour</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right_neighbour <span class="op">=</span> right_neighbour</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.position <span class="op">=</span> position</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> random_move(<span class="va">self</span>):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.position <span class="op">=</span> random.choice(<span class="va">self</span>.move)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> exist_colision(<span class="va">self</span>):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.left_neighbour:</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="va">self</span>.left_neighbour.position <span class="op">==</span> <span class="st">"right"</span> <span class="kw">and</span> <span class="va">self</span>.position <span class="op">==</span> <span class="st">"left"</span>:</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> (<span class="va">self</span>.left_neighbour.mass <span class="op">+</span> <span class="va">self</span>.mass)<span class="op">*</span><span class="fl">0.5</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.right_neighbour:  </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="va">self</span>.right_neighbour.position <span class="op">==</span> <span class="st">"left"</span> <span class="kw">and</span> <span class="va">self</span>.position <span class="op">==</span> <span class="st">"right"</span>:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> (<span class="va">self</span>.right_neighbour.mass <span class="op">+</span> <span class="va">self</span>.mass)<span class="op">*</span><span class="fl">0.5</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>masa_aluminio <span class="op">=</span> <span class="dv">2700</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>masa_hierro <span class="op">=</span> <span class="dv">7850</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>tipo_atomo <span class="op">=</span> [masa_aluminio, masa_hierro]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> (masa_hierro <span class="op">*</span> <span class="dv">450</span> <span class="op">+</span> masa_aluminio <span class="op">*</span> <span class="dv">900</span>) <span class="op">/</span> (masa_aluminio <span class="op">+</span> masa_hierro)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">280</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>iteraciones_micro <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>atomos <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir el rango deseado para velocidades más frecuentes</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>velocidad_minima <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>velocidad_maxima <span class="op">=</span> <span class="fl">1.5</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la media en ese rango</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>media_en_rango <span class="op">=</span> (velocidad_maxima <span class="op">+</span> velocidad_minima) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la tasa (lambda) para la distribución exponencial</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>lambda_param <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> media_en_rango</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Tamaño de la muestra</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>tamaño_muestra <span class="op">=</span> epochs <span class="op">*</span> iteraciones_micro</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar una muestra de velocidades con distribución exponencial</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>muestras_exponencial <span class="op">=</span> np.random.exponential(scale<span class="op">=</span><span class="dv">1</span><span class="op">/</span>lambda_param, size<span class="op">=</span>tamaño_muestra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>varilla<span class="op">=</span>[]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(atomos):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        varilla.append(atomo(masa_aluminio, <span class="va">None</span>, <span class="va">None</span>, i))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        m <span class="op">+=</span> masa_aluminio</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        varilla.append(atomo(masa_hierro, <span class="va">None</span>, <span class="va">None</span>, i))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        m <span class="op">+=</span> masa_hierro</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(atomos):</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        varilla[i].right_neighbour <span class="op">=</span> varilla[i<span class="op">+</span><span class="dv">1</span>]</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> i <span class="op">==</span> atomos<span class="op">-</span><span class="dv">1</span>:</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        varilla[i].left_neighbour <span class="op">=</span> varilla[i<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        varilla[i].left_neighbour <span class="op">=</span> varilla[i<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        varilla[i].right_neighbour <span class="op">=</span> varilla[i<span class="op">+</span><span class="dv">1</span>]</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_Q(res, velocity):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res <span class="op">*</span> velocity</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> temperature_differnce(Q):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Q <span class="op">/</span> (m <span class="op">*</span> c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>temperatura <span class="op">=</span> []</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> []</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    Q_acumulado <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> iteraciones <span class="kw">in</span> <span class="bu">range</span>(iteraciones_micro):</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        velocidad <span class="op">=</span> muestras_exponencial[i]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> atomo <span class="kw">in</span> varilla:</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>            atomo.random_move()</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> atomo <span class="kw">in</span> varilla:</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>            Q_acumulado <span class="op">+=</span> calculate_Q(atomo.exist_colision(), velocidad)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    Q_acumulado <span class="op">/=</span> <span class="fl">2.0</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    Q_promedio <span class="op">=</span> Q_acumulado <span class="op">/</span> iteraciones_micro</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    T <span class="op">=</span> T <span class="op">+</span> temperature_differnce(Q_promedio)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    Q.append(Q_promedio)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    temperatura.append(T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico con líneas que unen los puntos para 'temperatura'</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="bu">len</span>(temperatura)), temperatura, color<span class="op">=</span><span class="st">'b'</span>, label<span class="op">=</span><span class="st">'Temperatura'</span>, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadir etiquetas y título</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Iteración'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Temperatura (K)'</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Temperatura de varilla en iteraciones'</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar leyenda</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el gráfico</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab6_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico con líneas que unen los puntos para 'Q'</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="bu">len</span>(Q)), Q, color<span class="op">=</span><span class="st">'r'</span>, label<span class="op">=</span><span class="st">'Q'</span>, marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadir etiquetas y título</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Iteración'</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Calor (J)'</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Calor emitido promedio'</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar leyenda</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el gráfico</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab6_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><strong>a. ¿En qué se diferencia el modelo macroscópico del modelo microscópico en este escenario?</strong></p>
+<p>El modelo macroscópico se basa en la temperatura de la varilla en general, mientras que el modelo microscópico se basa en la temperatura de los átomos que componen la varilla. También si diferencia en que el modelos microscópico se basa en agentes y el modelo macroscópico es una formula de energía cinética.</p>
+<p><strong>b. ¿Cuáles son las condiciones de contorno del modelo microscópico y cómo las determina el modelo macroscópico?</strong></p>
+<p>La condición del modelo microscópico se basa en si ocurre una colisión entre los átomos. Todos aquellos átomos que colisionen generar calor. El modelo macroscópico calculara la temperatura de la varilla en base a la suma de las temperaturas de los átomos.</p>
+<p><strong>c.&nbsp;¿Cómo adaptaría este modelo multiescala si la varilla estuviera compuesta por más de dos materiales diferentes?</strong></p>
+<p>Debido a como realizamos nuestra implementación el modelo se adaptaría muy facil. Al momento de inicializar la calse atomo solo sería de establecer la masa de los n materiales nuevos. La simulación sería exactamente igual ya que solo se estaría afectando la masa de los átomos.</p>
+</section>
+<section id="ejercicio-2" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-2">Ejercicio 2</h2>
+<p>Implemente un enfoque de modelado multiescala concurrente en Python para simular el flujo de agua a través de una formación rocosa porosa. Utilice tanto un modelo macroscópico (ley de Darcy) como un modelo microscópico (ecuaciones de Navier-Stokes) para describir el flujo.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="fl">1.25</span> <span class="co"># m^2</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ro <span class="op">=</span> <span class="dv">997</span> <span class="co"># kg/m^3</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>miu <span class="op">=</span> <span class="fl">0.226</span> <span class="op">*</span> <span class="dv">10</span> <span class="op">**</span> <span class="op">-</span><span class="dv">6</span> <span class="co"># Visocidad cinemática&nbsp;60&nbsp;C</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>delta_P <span class="op">=</span> <span class="dv">1000</span> <span class="co"># Pa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 1: Simulación del flujo con la Ley de Darcy (Macroescala)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_darcy_flow(velocidad_media <span class="op">=</span> <span class="fl">0.5</span>):</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> (ro <span class="op">*</span> velocidad_media <span class="op">*</span> L) <span class="op">/</span> delta_P</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> k<span class="op">*</span>A<span class="op">*</span>(delta_P <span class="op">/</span> L), k</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámetros del problema</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Longitud del dominio</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>Nx <span class="op">=</span> <span class="dv">100</span>  <span class="co"># Número de puntos de la malla espacial</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>dx <span class="op">=</span> L <span class="op">/</span> (Nx <span class="op">-</span> <span class="dv">1</span>)  <span class="co"># Tamaño de paso en la malla</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>nu <span class="op">=</span> <span class="fl">0.226</span> <span class="op">*</span> <span class="dv">10</span> <span class="op">**</span> <span class="op">-</span><span class="dv">6</span>  <span class="co"># Viscosidad cinemática</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="fl">0.001</span>  <span class="co"># Paso de tiempo</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Inicialización de la malla espacial</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, L, Nx)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Inicialización de la condición inicial (perfil inicial de velocidad)</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> np.zeros(Nx)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>u[<span class="bu">int</span>(<span class="fl">0.5</span> <span class="op">/</span> dx):<span class="bu">int</span>(<span class="fl">0.6</span> <span class="op">/</span> dx)] <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Condición inicial: un pulso de velocidad</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 2: Simulación del flujo con las Ecuaciones de Navier-Stokes (Microescala)</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_navier_stokes_flow(macroscopic_results, u):</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    u_new <span class="op">=</span> np.zeros(Nx)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nx <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Implementación de la discretización de las ecuaciones de Navier-Stokes</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>        k_i <span class="op">=</span> macroscopic_results</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>        u_new[i] <span class="op">=</span> u[i] <span class="op">+</span> k_i <span class="op">+</span> nu <span class="op">*</span> dt <span class="op">/</span> dx<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (u[i<span class="op">+</span><span class="dv">1</span>] <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> u[i] <span class="op">+</span> u[i<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Actualización del perfil de velocidad</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    u <span class="op">=</span> u_new</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.mean(u)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>velocidad_result <span class="op">=</span>[] </span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>velocidad_micro <span class="op">=</span> []</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 3: Enfoque Multiescala Concurrente</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> multiscale_simulation():</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inicializa las simulaciones macro y micro</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    macroscopic_results, k <span class="op">=</span> simulate_darcy_flow()</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>    microscopic_results <span class="op">=</span> simulate_navier_stokes_flow(k, u)</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Itera o acopla las simulaciones según sea necesario</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(num_iterations):</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Realiza la simulación microscópica</span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>        microscopic_results <span class="op">=</span> simulate_navier_stokes_flow(k, u)</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Realiza la simulación macroscópica</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>        macroscopic_results, k <span class="op">=</span> simulate_darcy_flow(microscopic_results)</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>        velocidad_result.append(macroscopic_results)</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>        velocidad_micro.append(microscopic_results)</span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>        <span class="co"># velocidad_result.extend(macroscopic_results)</span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocidad_result</span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 4: Visualización del Flujo de Agua</span></span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> visualize_results(speed):</span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>    plt.plot(speed)</span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecuta la simulación multiescala y visualiza los resultados</span></span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>num_iterations <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>vel <span class="op">=</span> multiscale_simulation()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>visualize_results(vel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab6_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<ol type="a">
+<li>¿En qué se diferencia el enfoque multiescala concurrente del enfoque multiescala secuencial?</li>
+</ol>
+<p>La principal diferencia entre los dos enfoques es el paso de información entre las escalas. En un enfoque secuencial, primero se ejecuta cierta cantidad de iteraciones del modelo microscópico y luego la información recopilada se le pasa al modelo macroscópico. En el modelo concurrente, como se observa en esta simulación, se le pasa información de una escala a otra en cada iteración, sin tener que esperar a que corra una primero y luego la otra, es una actualización constante.</p>
+<ol start="2" type="a">
+<li>¿Qué información del modelo macroscópico se pasa al modelo microscópico y cómo afecta a la simulación microscópica?</li>
+</ol>
+<p>La información que se le pasa del macroscópico al microscópico en este caso es la permeabilidad general de la roca, la cual, afecta las ecuaciones de navier stokes al momento de calcular la velocidad de los fluidos. Se pasa esta información, debido a que la permeabilidad de la roca no es uniforme, cambia con el tiempo y también con el paso del tiempo. Esto afecta la velocidad con la que pasa el agua microscópicamente, debido a que a una menor permeabilidad debe pasar menos agua, lo que se observa en el gráfico.</p>
+<ol start="3" type="a">
+<li>¿Cuáles son las ventajas de utilizar modelado multiescala concurrente en este escenario?</li>
+</ol>
+<p>En este escenario es crucial usar el modelado concurrente, debido a que permite obtener información en cada timestep de cómo está pasando el agua microscópicamente. Si se hiciera secuencial, solo se obtendría información de la velocidad promedio y no de cada iteración, lo cual no permitiría actualiza adecuadamente los valores macroscópicos, además de que no se podría modificar la permeabilidad en tiempo real microscópicamente. Entonces, al usar el modelo podemos tener una representación más realista y precisa del fenómeno.</p>
+</section>
+<section id="ejercicio-3" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-3">Ejercicio 3</h2>
+<p>Tiene la tarea de modelar el crecimiento de la población en múltiples escalas, desde organismos individuales hasta la población global. Para esto debe implementar un modelo multiescala en Python para analizar el crecimiento poblacional y su impacto.</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> packet(<span class="bu">object</span>):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, mens, womens,number):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.number <span class="op">=</span> number</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.mens <span class="op">=</span> <span class="bu">int</span>(mens)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.womens <span class="op">=</span> <span class="bu">int</span>(womens)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.childrens_probability <span class="op">=</span> random.uniform(<span class="fl">0.1</span>, <span class="dv">1</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sex(<span class="va">self</span>,sobrante):</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        cantidad_hijos <span class="op">=</span> <span class="bu">int</span>(<span class="bu">min</span>(sobrante,<span class="bu">min</span>(<span class="va">self</span>.mens, <span class="va">self</span>.womens))<span class="op">/</span><span class="dv">4</span> <span class="op">*</span> <span class="va">self</span>.childrens_probability)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        proporcion <span class="op">=</span> random.uniform(<span class="fl">0.1</span>, <span class="dv">1</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.mens <span class="op">+=</span> <span class="bu">int</span>(cantidad_hijos <span class="op">*</span> proporcion)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.womens <span class="op">+=</span> <span class="bu">int</span>(cantidad_hijos <span class="op">*</span> (<span class="dv">1</span><span class="op">-</span>proporcion))</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> consume_resources(<span class="va">self</span>):</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">int</span>(<span class="va">self</span>.mens <span class="op">+</span> <span class="va">self</span>.womens)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> starvation(<span class="va">self</span>,deficit):</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>        deficit <span class="op">=</span> <span class="bu">int</span>(deficit)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> dead <span class="kw">in</span> <span class="bu">range</span>(deficit):</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> dead <span class="op">%</span><span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> <span class="va">self</span>.mens <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.mens <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> dead <span class="op">%</span><span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span> <span class="kw">and</span> <span class="va">self</span>.womens <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.womens <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_population(<span class="va">self</span>):</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">int</span>(<span class="va">self</span>.mens <span class="op">+</span> <span class="va">self</span>.womens)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> village(<span class="bu">object</span>):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, resources):</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.resources <span class="op">=</span> <span class="bu">int</span>(resources)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.max_resources <span class="op">=</span> <span class="bu">int</span>(resources)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.regenerate <span class="op">=</span> <span class="dv">1</span><span class="op">+</span>random.uniform(<span class="fl">0.5</span>, <span class="fl">0.9</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> consume_resources(<span class="va">self</span>, consumtion):</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.resources <span class="op">-=</span> consumtion</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> regenerate_resources(<span class="va">self</span>):</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.resources <span class="op">&lt;</span> <span class="dv">100</span>:</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.resources <span class="op">+=</span> <span class="dv">123</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.resources <span class="op">*=</span> <span class="va">self</span>.regenerate</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.resources <span class="op">&gt;</span> <span class="va">self</span>.max_resources:</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.resources <span class="op">=</span> <span class="va">self</span>.max_resources</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.resources <span class="op">=</span> <span class="bu">int</span>(<span class="va">self</span>.resources)</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_resources(<span class="va">self</span>):</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.resources</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SIMULACION DE POBLACIONES</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">8</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>cantidad_lugares <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>lugares <span class="op">=</span> []</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>poblaciones <span class="op">=</span> []</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> v <span class="kw">in</span> <span class="bu">range</span>(cantidad_lugares):</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    lugares.append(village(random.uniform(<span class="dv">1000</span>, <span class="dv">2500</span>)))</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> cantidad_lugares <span class="op">-</span> <span class="dv">2</span> <span class="op">&gt;</span>v:</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>        poblaciones.append(packet(random.uniform(<span class="dv">50</span>, <span class="dv">70</span>), random.uniform(<span class="dv">50</span>, <span class="dv">80</span>), v))</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>dias_simulacion <span class="op">=</span> <span class="dv">450</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>total_population <span class="op">=</span> []</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>total_resources <span class="op">=</span> []</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>acu_p <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>acu_r <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> poblacion <span class="kw">in</span> poblaciones:</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    acu_p <span class="op">+=</span> poblacion.get_population()</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lugar <span class="kw">in</span> lugares:</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    acu_r <span class="op">+=</span> lugar.get_resources()</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>total_population.append(acu_p)</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>total_resources.append(acu_r)    </span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dia <span class="kw">in</span> <span class="bu">range</span>(dias_simulacion):</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>    acu_p <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>    acu_r <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> poblacion <span class="kw">in</span> poblaciones:</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>        ubicacion <span class="op">=</span> random.randint(<span class="dv">0</span>, cantidad_lugares<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>        visited_ubicacion <span class="op">=</span> lugares[ubicacion]</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>        resource_poblacion <span class="op">=</span> poblacion.consume_resources()</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>        deficit <span class="op">=</span> resource_poblacion <span class="op">-</span> visited_ubicacion.get_resources()</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> deficit <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>            poblacion.starvation(deficit)</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>            visited_ubicacion.consume_resources(resource_poblacion<span class="op">-</span>deficit)</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>            visited_ubicacion.consume_resources(resource_poblacion)</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>            poblacion.sex(<span class="bu">abs</span>(deficit))</span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>        acu_p <span class="op">+=</span> poblacion.get_population()</span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a>        acu_r <span class="op">+=</span> visited_ubicacion.get_resources()</span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>    total_population.append(acu_p)</span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>    total_resources.append(acu_r)</span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> lugar <span class="kw">in</span> lugares:</span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>        lugar.regenerate_resources()</span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="bu">len</span>(total_population)), total_population, color<span class="op">=</span><span class="st">'b'</span>, label<span class="op">=</span><span class="st">'Población'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="bu">len</span>(total_resources)), total_resources, color<span class="op">=</span><span class="st">'r'</span>, label<span class="op">=</span><span class="st">'Recursos'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadir etiquetas y título</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Día'</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Cantidad'</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Población y Recursos'</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab6_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><strong>a. ¿Qué es el modelado multiescala y por qué es esencial para comprender sistemas complejos como el crecimiento de la población?</strong></p>
+<p>El modelado multiescala es una técnica utilizada en la ciencia y la ingeniería para comprender y representar sistemas complejos que operan en múltiples niveles de organización y con interacciones que ocurren a diferentes escalas espaciales y temporales. Es esencial para comprender sistemas complejos como el crecimiento de la población, ya que permite modelar el fenómeno a diferentes escalas, lo que permite obtener información más precisa y realista del fenómeno.</p>
+<p><strong>b. Describe el modelo a nivel individual en esta simulación multiescala. ¿Qué factores se consideran a escala individual?</strong></p>
+<p>Los individuos (hombres o mujeres) consumen los recursos de los valles y si ven que hay suficientes recursos como para tener hijos, entonces se reproducen. Si no hay suficientes recursos, entonces no se reproducen. Los individuos también mueren de hambre si no hay suficientes recursos. Cada manda tiene una distribución uniforme sobre como se distribuieran los hijojs cuandos hombres y mujeres se tendrán en cada manada.</p>
+<p><strong>c.&nbsp;Discuta el modelo a escala de comunidad local. ¿Cómo incorpora interacciones entre individuos y factores ambientales?</strong></p>
+<p>Los valles tienen una capacidad maxima de recursos, asi como también una taza de recuperación. Los individuos se mueven de forma aleatoria entre los valles buscando recursos. Por lo tanto si una manda se va dejando un valle sin recursos y luego llega una manada, esta manada se vera afectada perdiendo miembros por inanición.</p>
+<p><strong>d.&nbsp;Explique el modelo a escala global. ¿Qué parámetros y factores se consideran al modelar toda la población mundial?</strong></p>
+<p>Toda la población se ve afectada por las acciones de las manadas, ya que si una manada se va de un valle dejándolo sin recursos, entonces la población mundial se ve afectada, ya que hay menos recursos para todos. Además, la población mundial se ve afectada por la cantidad de recursos que hay en cada valle, ya que si hay más recursos, entonces la población mundial crece más rápido, y si hay menos recursos, entonces la población mundial crece más lento. A su vez como los valles tienen una capacidad maxima de producción de recursos la población también tiene un limite de crecimiento si las condiciones adecuadas se dan.</p>
+</section>
+<section id="ejercicio-4" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-4">Ejercicio 4</h2>
+<p>Tiene la tarea de modelar el flujo de tráfico urbano a múltiples escalas, desde vehículos individuales hasta toda la ciudad. Implemente un modelo de flujo de tráfico multiescala en Python para analizar el comportamiento del tráfico y los patrones de congestión.</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Calle():</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.next_street <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.last_street <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right_street <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left_street <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.back_street <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left_queue <span class="op">=</span> []</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right_queue <span class="op">=</span> []</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.time <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right_semaphore <span class="op">=</span> <span class="va">self</span>.time</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left_semaphore <span class="op">=</span> <span class="va">self</span>.time</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right_queue_size <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.time</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left_queue_size <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.time</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.is_red_right <span class="op">=</span> random.choice([<span class="va">True</span>, <span class="va">False</span>])</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.is_red_left <span class="op">=</span> random.choice([<span class="va">True</span>, <span class="va">False</span>])</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.closed <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.closed_time <span class="op">=</span> <span class="va">self</span>.time</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_next(<span class="va">self</span>, calle):</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.next_street <span class="op">=</span> calle</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_right_street(<span class="va">self</span>, calle):</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right_street <span class="op">=</span> calle</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_left_street(<span class="va">self</span>, calle):</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left_street <span class="op">=</span> calle</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_back_street(<span class="va">self</span>, calle):</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.back_street <span class="op">=</span> calle</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> enter_street(<span class="va">self</span>, car, side):</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.left_queue) <span class="op">&lt;</span> <span class="va">self</span>.left_queue_size:</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> side <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.right_queue.append(car)</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.left_queue.append(car)</span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>            car.set_street(<span class="va">self</span>)</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_available_space_left(<span class="va">self</span>):</span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.left_queue_size <span class="op">-</span> <span class="bu">len</span>(<span class="va">self</span>.left_queue)</span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_available_space_right(<span class="va">self</span>):</span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.right_queue_size <span class="op">-</span> <span class="bu">len</span>(<span class="va">self</span>.right_queue)</span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> move_right_lane(<span class="va">self</span>):</span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Mover carros de linea derecha</span></span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>        cant_next <span class="op">=</span> <span class="va">self</span>.next_street.get_available_space_right() <span class="cf">if</span> <span class="va">self</span>.next_street <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>        cant_right <span class="op">=</span> <span class="va">self</span>.right_street.get_available_space_right() <span class="cf">if</span> <span class="va">self</span>.right_street <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>        cant_left <span class="op">=</span> <span class="va">self</span>.left_street.get_available_space_right() <span class="cf">if</span> <span class="va">self</span>.left_street <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.is_red_right:</span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.right_semaphore <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.is_red_right <span class="op">=</span> <span class="va">False</span> <span class="cf">if</span> <span class="va">self</span>.right_semaphore <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="va">True</span></span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span></span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right_semaphore <span class="op">=</span> <span class="va">self</span>.time</span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">self</span>.right_semaphore <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.right_queue) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a>                choice <span class="op">=</span> random.choice([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>])</span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a>                top_car <span class="op">=</span> <span class="va">self</span>.right_queue[<span class="dv">0</span>]</span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> top_car.damaged:</span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span></span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> choice <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> cant_next <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> <span class="kw">not</span> <span class="va">self</span>.next_street.closed:</span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a>                    <span class="va">self</span>.next_street.enter_street(<span class="va">self</span>.right_queue.pop(<span class="dv">0</span>), <span class="dv">0</span>)</span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a>                    cant_next <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a>                    choice <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> choice <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> cant_right <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> <span class="kw">not</span> <span class="va">self</span>.right_street.closed:</span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a>                    <span class="va">self</span>.right_street.enter_street(<span class="va">self</span>.right_queue.pop(<span class="dv">0</span>), <span class="dv">0</span>)</span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a>                    cant_right <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> choice <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> cant_left <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> <span class="kw">not</span> <span class="va">self</span>.left_street.closed:</span>
+<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a>                    <span class="va">self</span>.left_street.enter_street(<span class="va">self</span>.right_queue.pop(<span class="dv">0</span>), <span class="dv">0</span>)</span>
+<span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a>                    cant_left <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.right_semaphore <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb19-80"><a href="#cb19-80" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb19-81"><a href="#cb19-81" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right_semaphore <span class="op">=</span> <span class="va">self</span>.time</span>
+<span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.is_red_right <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> move_left_lane(<span class="va">self</span>):</span>
+<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Mover carros de linea izquierda</span></span>
+<span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a>        right_street <span class="op">=</span> <span class="va">self</span>.back_street.right_street <span class="cf">if</span> <span class="va">self</span>.back_street <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a>        left_street <span class="op">=</span> <span class="va">self</span>.back_street.left_street <span class="cf">if</span> <span class="va">self</span>.back_street <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a>        cant_next <span class="op">=</span> <span class="va">self</span>.back_street.get_available_space_right() <span class="cf">if</span> <span class="va">self</span>.back_street <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb19-90"><a href="#cb19-90" aria-hidden="true" tabindex="-1"></a>        cant_right <span class="op">=</span> right_street.get_available_space_right() <span class="cf">if</span> right_street <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a>        cant_left <span class="op">=</span> left_street.get_available_space_right() <span class="cf">if</span> left_street <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-93"><a href="#cb19-93" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.is_red_left:</span>
+<span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.left_semaphore <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.is_red_left <span class="op">=</span> <span class="va">False</span> <span class="cf">if</span> <span class="va">self</span>.right_semaphore <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="va">True</span></span>
+<span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span></span>
+<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb19-98"><a href="#cb19-98" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left_semaphore <span class="op">=</span> <span class="va">self</span>.time</span>
+<span id="cb19-99"><a href="#cb19-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-100"><a href="#cb19-100" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">self</span>.left_semaphore <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb19-101"><a href="#cb19-101" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.left_queue) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb19-102"><a href="#cb19-102" aria-hidden="true" tabindex="-1"></a>                choice <span class="op">=</span> random.choice([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>])</span>
+<span id="cb19-103"><a href="#cb19-103" aria-hidden="true" tabindex="-1"></a>                top_car <span class="op">=</span> <span class="va">self</span>.left_queue[<span class="dv">0</span>]</span>
+<span id="cb19-104"><a href="#cb19-104" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> top_car.damaged:</span>
+<span id="cb19-105"><a href="#cb19-105" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">return</span></span>
+<span id="cb19-106"><a href="#cb19-106" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> choice <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> cant_next <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> <span class="kw">not</span> <span class="va">self</span>.back_street.closed:</span>
+<span id="cb19-107"><a href="#cb19-107" aria-hidden="true" tabindex="-1"></a>                    <span class="va">self</span>.back_street.enter_street(<span class="va">self</span>.left_queue.pop(<span class="dv">0</span>), <span class="dv">1</span>)</span>
+<span id="cb19-108"><a href="#cb19-108" aria-hidden="true" tabindex="-1"></a>                    cant_next <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb19-109"><a href="#cb19-109" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb19-110"><a href="#cb19-110" aria-hidden="true" tabindex="-1"></a>                    choice <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb19-111"><a href="#cb19-111" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> choice <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> cant_right <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> <span class="kw">not</span> right_street.closed:</span>
+<span id="cb19-112"><a href="#cb19-112" aria-hidden="true" tabindex="-1"></a>                    right_street.enter_street(<span class="va">self</span>.left_queue.pop(<span class="dv">0</span>), <span class="dv">1</span>)</span>
+<span id="cb19-113"><a href="#cb19-113" aria-hidden="true" tabindex="-1"></a>                    cant_left <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb19-114"><a href="#cb19-114" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> choice <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> cant_left <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> <span class="kw">not</span> left_street.closed:</span>
+<span id="cb19-115"><a href="#cb19-115" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># print(len(self.left_queue))</span></span>
+<span id="cb19-116"><a href="#cb19-116" aria-hidden="true" tabindex="-1"></a>                    left_street.enter_street(<span class="va">self</span>.left_queue.pop(<span class="dv">0</span>), <span class="dv">1</span>)</span>
+<span id="cb19-117"><a href="#cb19-117" aria-hidden="true" tabindex="-1"></a>                    cant_left <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb19-118"><a href="#cb19-118" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.left_semaphore <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb19-119"><a href="#cb19-119" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb19-120"><a href="#cb19-120" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left_semaphore <span class="op">=</span> <span class="va">self</span>.time</span>
+<span id="cb19-121"><a href="#cb19-121" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.is_red_left <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb19-122"><a href="#cb19-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-123"><a href="#cb19-123" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> move_cars(<span class="va">self</span>):</span>
+<span id="cb19-124"><a href="#cb19-124" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.move_right_lane()</span>
+<span id="cb19-125"><a href="#cb19-125" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.move_left_lane()</span>
+<span id="cb19-126"><a href="#cb19-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-127"><a href="#cb19-127" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.closed:</span>
+<span id="cb19-128"><a href="#cb19-128" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.closed_time <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb19-129"><a href="#cb19-129" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="va">self</span>.closed_time <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb19-130"><a href="#cb19-130" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.closed <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb19-131"><a href="#cb19-131" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.closed_time <span class="op">=</span> <span class="va">self</span>.time</span>
+<span id="cb19-132"><a href="#cb19-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-133"><a href="#cb19-133" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.closed <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb19-134"><a href="#cb19-134" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> random.random() <span class="op">&lt;</span> <span class="fl">0.2</span>:</span>
+<span id="cb19-135"><a href="#cb19-135" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.closed <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb19-136"><a href="#cb19-136" aria-hidden="true" tabindex="-1"></a>        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Zona():</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, number) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.calles <span class="op">=</span> []</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.number <span class="op">=</span> number</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add_street(<span class="va">self</span>, calle):</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.calles.append(calle)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> move_cars(<span class="va">self</span>):</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> calle <span class="kw">in</span> <span class="va">self</span>.calles:</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>            calle.move_cars()</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_cars(<span class="va">self</span>):</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> calle <span class="kw">in</span> <span class="va">self</span>.calles:</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>            total <span class="op">+=</span> <span class="bu">len</span>(calle.left_queue) <span class="op">+</span> <span class="bu">len</span>(calle.right_queue)</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Carro():</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, calle, lado) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.calle <span class="op">=</span> calle</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lado <span class="op">=</span> lado</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.in_home <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.damaged <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> go_out(<span class="va">self</span>):</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>        go <span class="op">=</span> random.random()</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.in_home <span class="kw">and</span> go <span class="op">&lt;</span> <span class="fl">0.5</span>:</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.in_home <span class="op">=</span> <span class="kw">not</span> <span class="va">self</span>.calle.enter_street(<span class="va">self</span>, <span class="va">self</span>.lado)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.damaged <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> random.random() <span class="op">&lt;</span> <span class="fl">0.1</span>:</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.damaged <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_street(<span class="va">self</span>, street):</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.calle <span class="op">=</span> street</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cuadricula:</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, rows, columns):</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.rows <span class="op">=</span> rows</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.columns <span class="op">=</span> columns</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.grid <span class="op">=</span> [[<span class="va">None</span> <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(columns)] <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(rows)]</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_random_street(<span class="va">self</span>):</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>        i <span class="op">=</span> random.randint(<span class="dv">0</span>, <span class="va">self</span>.rows <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        j <span class="op">=</span> random.randint(<span class="dv">0</span>, <span class="va">self</span>.columns <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.grid[i][j]</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> create_grid(<span class="va">self</span>, zonas):</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>        cont <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>        k <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.rows):</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.columns):</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>                zona <span class="op">=</span> zonas[k]</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>                name <span class="op">=</span> <span class="ss">f'Calle_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>j<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.grid[i][j] <span class="op">=</span> Calle(name)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>                zona.add_street(<span class="va">self</span>.grid[i][j])</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>                cont <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>            k <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Conectar las calles en la cuadrícula</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.rows):</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.columns):</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>                current_calle <span class="op">=</span> <span class="va">self</span>.grid[i][j]</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> j <span class="op">&lt;</span> <span class="va">self</span>.columns <span class="op">-</span> <span class="dv">1</span>:</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>                    current_calle.set_right_street(<span class="va">self</span>.grid[i][j <span class="op">+</span> <span class="dv">1</span>])</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> j <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>                    current_calle.set_left_street(<span class="va">self</span>.grid[i][j <span class="op">-</span> <span class="dv">1</span>])</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> i <span class="op">&lt;</span> <span class="va">self</span>.rows <span class="op">-</span> <span class="dv">1</span>:</span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>                    current_calle.set_next(<span class="va">self</span>.grid[i <span class="op">+</span> <span class="dv">1</span>][j])</span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>                    <span class="va">self</span>.grid[i <span class="op">+</span> <span class="dv">1</span>][j].set_back_street(current_calle)</span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_cars_per_street(<span class="va">self</span>):</span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>        cars_per_street <span class="op">=</span> []</span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.rows):</span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.columns):</span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>                cars_per_street.append(<span class="bu">len</span>(<span class="va">self</span>.grid[i][j].left_queue) <span class="op">+</span> <span class="bu">len</span>(<span class="va">self</span>.grid[i][j].right_queue))</span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cars_per_street</span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> print_grid(<span class="va">self</span>):</span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.rows):</span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.columns):</span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>grid[i][j]<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> -&gt; Next: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>grid[i][j]<span class="sc">.</span>next_street<span class="sc">.</span>name <span class="cf">if</span> <span class="va">self</span><span class="sc">.</span>grid[i][j]<span class="sc">.</span>next_street <span class="cf">else</span> <span class="st">"None"</span><span class="sc">}</span><span class="ss">,'</span></span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a>                      <span class="ss">f' Right: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>grid[i][j]<span class="sc">.</span>right_street<span class="sc">.</span>name <span class="cf">if</span> <span class="va">self</span><span class="sc">.</span>grid[i][j]<span class="sc">.</span>right_street <span class="cf">else</span> <span class="st">"None"</span><span class="sc">}</span><span class="ss">,'</span></span>
+<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>                      <span class="ss">f' Left: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>grid[i][j]<span class="sc">.</span>left_street<span class="sc">.</span>name <span class="cf">if</span> <span class="va">self</span><span class="sc">.</span>grid[i][j]<span class="sc">.</span>left_street <span class="cf">else</span> <span class="st">"None"</span><span class="sc">}</span><span class="ss">,'</span></span>
+<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>                      <span class="ss">f' Back: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>grid[i][j]<span class="sc">.</span>back_street<span class="sc">.</span>name <span class="cf">if</span> <span class="va">self</span><span class="sc">.</span>grid[i][j]<span class="sc">.</span>back_street <span class="cf">else</span> <span class="st">"None"</span><span class="sc">}</span><span class="ss">,'</span>)</span>
+<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>rows  <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>cant_zonas <span class="op">=</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>zonas <span class="op">=</span> []</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(cant_zonas):</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    zonas.append(Zona(i))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una cuadrícula de 3x3</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>cuadricula <span class="op">=</span> Cuadricula(rows, columns)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>cuadricula.create_grid(zonas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>cant_carros <span class="op">=</span> <span class="dv">999</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>carros <span class="op">=</span> []</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(cant_carros):</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    street <span class="op">=</span> cuadricula.get_random_street()</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 0 es derecha, 1 es izquierda</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    lado <span class="op">=</span> random.randint(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    carros.append(Carro(street, lado))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>epocas <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>zonaz_array <span class="op">=</span>[]</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>zonas_mas_concurridas <span class="op">=</span> []</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> zona <span class="kw">in</span> <span class="bu">range</span>(cant_zonas):</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    zonaz_array.append([])</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoca <span class="kw">in</span> <span class="bu">range</span>(epocas):</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> carro <span class="kw">in</span> carros:</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>        carro.go_out()  </span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> zona <span class="kw">in</span> zonas:</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>        zona.move_cars()</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>        zonaz_array[zona.number].append(zona.get_cars())</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    zonas_cars <span class="op">=</span> [zona.get_cars() <span class="cf">for</span> zona <span class="kw">in</span> zonas]</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    zonas_mas_concurridas.append(np.argmax(zonas_cars))</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cuadricula.get_cars_per_street())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 5, 17, 0, 0, 0, 0, 0, 0, 10, 10, 10, 10, 0, 0, 0, 0, 0, 0, 10, 10, 18, 18, 0, 0, 0, 0, 0, 6, 10, 10, 11, 19, 0, 0, 0, 0, 1, 10, 10, 10, 10, 18, 0, 7, 10, 10, 10, 10, 10, 10, 10, 12]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(zonaz_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[46, 78, 90, 97, 94, 95, 106, 107, 112, 105, 107, 107, 109, 110, 112, 110, 110, 109, 109, 109, 109, 108, 108, 108, 108, 108, 106, 106, 106, 106, 106, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 102, 102, 102, 102, 102, 102, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100], [42, 86, 94, 100, 102, 79, 75, 74, 76, 75, 67, 80, 82, 83, 78, 76, 62, 68, 68, 63, 58, 56, 52, 55, 57, 51, 51, 47, 47, 48, 54, 55, 53, 47, 47, 49, 57, 54, 48, 49, 41, 41, 32, 32, 28, 20, 22, 18, 17, 15, 11, 13, 12, 15, 15, 16, 19, 13, 13, 12, 12, 15, 10, 8, 8, 8, 11, 10, 10, 9, 9, 10, 10, 10, 7, 4, 6, 5, 5, 4, 4, 4, 4, 4, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 2], [44, 80, 89, 93, 84, 78, 99, 109, 112, 101, 79, 72, 80, 84, 71, 70, 75, 80, 80, 75, 61, 62, 63, 61, 64, 55, 63, 74, 76, 67, 50, 48, 55, 53, 47, 37, 36, 42, 38, 39, 31, 30, 33, 35, 36, 28, 32, 33, 32, 34, 31, 31, 27, 26, 22, 18, 18, 18, 18, 18, 15, 15, 15, 15, 15, 9, 9, 9, 9, 12, 10, 10, 10, 10, 13, 11, 11, 10, 10, 10, 10, 10, 10, 10, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 9, 9, 9, 9, 9, 9], [46, 78, 85, 89, 86, 84, 82, 84, 84, 82, 77, 71, 70, 72, 69, 73, 68, 68, 60, 60, 48, 50, 58, 61, 59, 48, 48, 41, 38, 44, 41, 34, 44, 49, 49, 46, 38, 43, 45, 44, 39, 38, 33, 32, 32, 26, 22, 22, 18, 17, 15, 13, 13, 10, 10, 10, 10, 10, 10, 10, 10, 10, 12, 11, 11, 12, 12, 13, 9, 9, 9, 9, 9, 8, 11, 11, 11, 14, 12, 14, 12, 12, 12, 11, 11, 11, 11, 11, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], [56, 91, 108, 111, 98, 91, 103, 112, 112, 104, 94, 94, 91, 100, 83, 75, 76, 78, 83, 79, 78, 70, 72, 71, 72, 60, 57, 61, 55, 56, 61, 57, 56, 54, 50, 54, 49, 42, 41, 39, 34, 38, 40, 43, 42, 43, 41, 42, 43, 41, 41, 39, 39, 40, 40, 41, 39, 39, 39, 37, 37, 34, 34, 34, 34, 34, 32, 32, 32, 32, 32, 31, 28, 25, 25, 25, 22, 21, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22], [41, 70, 78, 85, 66, 57, 65, 62, 61, 55, 55, 56, 54, 48, 47, 55, 60, 71, 65, 58, 65, 56, 57, 64, 63, 62, 63, 65, 60, 63, 56, 56, 55, 51, 46, 42, 43, 44, 42, 45, 46, 45, 41, 39, 38, 34, 35, 35, 34, 36, 38, 40, 40, 40, 40, 39, 40, 40, 40, 41, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40], [41, 72, 82, 86, 78, 82, 96, 103, 104, 92, 95, 95, 95, 96, 90, 90, 77, 74, 70, 74, 74, 80, 74, 75, 72, 74, 78, 71, 65, 60, 58, 53, 54, 54, 55, 56, 54, 54, 51, 51, 56, 54, 55, 55, 56, 60, 59, 59, 60, 60, 60, 60, 60, 60, 60, 60, 60, 57, 57, 58, 59, 59, 58, 58, 58, 58, 58, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56], [44, 91, 102, 106, 91, 74, 83, 84, 81, 84, 63, 72, 76, 68, 60, 57, 71, 78, 71, 64, 61, 55, 56, 55, 55, 48, 50, 52, 55, 51, 53, 55, 55, 54, 54, 54, 56, 54, 56, 53, 53, 55, 54, 53, 52, 52, 53, 53, 51, 51, 51, 51, 51, 51, 51, 51, 51, 54, 54, 54, 54, 54, 55, 55, 54, 54, 54, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56], [34, 65, 74, 82, 78, 74, 81, 87, 88, 86, 66, 65, 66, 68, 67, 57, 50, 50, 53, 55, 54, 52, 51, 47, 45, 44, 45, 45, 45, 47, 47, 49, 50, 51, 52, 52, 52, 54, 54, 54, 54, 54, 55, 56, 56, 56, 56, 56, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59], [53, 75, 84, 86, 88, 84, 77, 78, 76, 78, 82, 81, 81, 81, 81, 85, 85, 85, 85, 85, 86, 86, 86, 86, 86, 87, 88, 88, 88, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89, 89]]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>matriz <span class="op">=</span> zonaz_array</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtén las dimensiones de la matriz</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>filas <span class="op">=</span> <span class="bu">len</span>(matriz)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Crea un subplot para cada casilla de la matriz</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(filas, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">20</span>))</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Itera a través de la matriz y dibuja cada arreglo en su casilla correspondiente</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(filas):</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    arreglo <span class="op">=</span> matriz[i]</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.arange(<span class="bu">len</span>(arreglo))</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    axs[i].plot(x, arreglo)</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    axs[i].set_xlim(<span class="dv">0</span>, <span class="bu">len</span>(arreglo) <span class="op">-</span> <span class="dv">1</span>)  <span class="co"># Ajusta los límites del eje x</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    axs[i].set_ylim(<span class="bu">min</span>(arreglo) <span class="op">-</span> <span class="dv">1</span>, <span class="bu">max</span>(arreglo) <span class="op">+</span> <span class="dv">1</span>)  <span class="co"># Ajusta los límites del eje y</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i<span class="op">&lt;</span>filas<span class="op">-</span><span class="dv">1</span>:</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>        axs[i].set_xticklabels([])</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajusta el espacio entre los subplots</span></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(wspace<span class="op">=</span><span class="fl">0.1</span>, hspace<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Muestra el grid</span></span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab6_files/figure-html/cell-30-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>El gráfico de arriba muestra la congestión en las zonas a lo largo del tiempo. Cada gráfica corresponde a la zona 0, 1 y así sucesivamente.</p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>unique_values, value_counts <span class="op">=</span> np.unique(zonas_mas_concurridas, return_counts<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>plt.bar(unique_values, value_counts, color<span class="op">=</span><span class="st">'b'</span>, label<span class="op">=</span><span class="st">'Zonas'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Optionally, add labels and title</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Zonas'</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Cantidad de veces que la zona es la más congestionada'</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Zonas más congestionadas'</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab6_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><strong>a. ¿Qué es el modelado multiescala y por qué es valioso para comprender el flujo y la congestión del tráfico urbano?</strong></p>
+<p>El modelo multiescala es una forma de realizar simulaciones que permitan capturar fenómenos en diferentes escalas, de forma que se pueda tener una representación más realista y precisa. De esta manear, es posible tener relaciones e interacciones a diferentes niveles, de forma que se observen patrones emergentes en diferentes escalas, lo cual ayuda a evaluar distintos comportamientos. Para la congestión de tráfico es valioso porque este fenómeno tiene diferentes formas. Nuestra simulación esta hasta cierto punto simplista, porque solo tomamos en cuenta zonas, calles y carros, pero el tráfico tiene muchas más variables. Sin embargo, solo con estas 3 que se tomaron, se puede ver que se obtienen resultados interesantes con respecto al tráfico. Entonces, es posible modelar en muchos niveles el tráfico urbano, de forma que se puedan identificar problemas en cada uno de estos niveles y así poder solucionarlos.</p>
+<p><strong>b. Describe el modelo individual a nivel de vehículo en esta simulación multiescala. ¿Qué parámetros y factores se consideran a esta escala?</strong><br>
+A nivel individual los carros cuando están estacionados en su casa tienen una probabilidad de salir o no de sus casas. Luego el carro simplemente tiene la responsabilidad de saber en que calle se encuentra. También tiene una probabilidad de averiarse al momento de moverse. Si el carro se avería, causa tráfico, debido a que toda la cola se queda esperando a que vuelva a funcionar. Los carros nunca dejan de moverse.</p>
+<p><strong>c.&nbsp;Explique el modelo a nivel de segmento de carretera. ¿Cómo tiene en cuenta la densidad del tráfico, los límites de velocidad y la congestión?</strong></p>
+<p>Para tomar en cuenta la densidad de tráfico se tiene un límite de carros que pueden haber en una calle al mismo tiempo. Este se uno con una cola que se maneja para modelar la densidad de tráfico. La diferencia entre el límite y la cantidad de carros en cola, se puede saber si la calle está congestionada o no. En este caso, la velocidad de los carros se tomó como constante, es decir, estos pasan de un espacio de la cola a otra en movimientos constantes. Sin embargo, si las cola de la calle y de las calles aledañas están libres, los carros se pueden mover más rápido.</p>
+<p><strong>d.&nbsp;Analice el modelo a nivel de intersección. ¿Qué variables se tienen en cuenta al simular las interacciones de vehículos en las intersecciones?</strong></p>
+<p>En las intersecciones se tienen en cuenta dos factores. El primero es un semáforo que tiene el mismo tiempo en rojo que en verde, solo se tienen dos colores. Entonces, si el semáforo está en verde, los carros pueden pasar al siguiente carril. Por otra parte, se maneja una cola en cada calle, y si la cola de la siguiente calle está llena, los carros no pueden pasar. En este caso como se tiene programación secuencial, no hay problema con choques entre calles, pero si se hiciera paralelamente, se deberían tomar en cuenta otras restricciones.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
